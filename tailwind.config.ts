@@ -10,11 +10,11 @@ export default {
   theme: {
     extend: {
 
-      backgroundImage: {
-        home: "url('../public/Images/HomeBack.svg')",
-        phoneDonate: "url('../public/Images/PhoneDonate.svg')",
-        phoneBack: "url('../public/Images/PhoneLanding.svg')",
-      },
+      // backgroundImage: {
+      //   home: "url('../public/Images/HomeBack.svg')",
+      //   phoneDonate: "url('../public/Images/PhoneDonate.svg')",
+      //   phoneBack: "url('../public/Images/PhoneLanding.svg')",
+      // },
 
       colors: {
         orange: '#F2A043',
