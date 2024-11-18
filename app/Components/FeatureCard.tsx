@@ -5,9 +5,9 @@ import RightArrow2 from "../../public/Images/RightArrow2.svg";
 import Link from "next/link";
 
 interface FtCard {
-  name: String;
-  title: String;
-  description: String;
+  name: string;
+  title: string;
+  description: string;
   image: StaticImageData;
 }
 

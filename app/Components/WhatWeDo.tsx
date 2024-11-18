@@ -6,9 +6,9 @@ import RightArrow2 from "../../public/Images/RightArrow2.svg";
 
 interface WhatWeDo {
   image: StaticImageData;
-  heading: String;
-  description: String;
-  link: String;
+  heading: string;
+  description: string;
+  link: string;
 }
 
 const WhatWeDo = (props: WhatWeDo) => {
