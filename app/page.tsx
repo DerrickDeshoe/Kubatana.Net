@@ -79,7 +79,7 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Function to change background based on direction
-  const changeBgImage = (direction:any) => {
+  const changeBgImage = (direction: "left" | "right") => {
     if (direction === "left") {
       setCurrentIndex((prevIndex) =>
         prevIndex === 0 ? laptopBackgrounds.length - 1 : prevIndex - 1
@@ -90,6 +90,7 @@ const Home = () => {
       );
     }
   };
+  
 
   return (
     <div className="w-full">
