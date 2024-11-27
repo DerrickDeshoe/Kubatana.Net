@@ -13,7 +13,7 @@ const page = () => {
   return (
     <div className="flex flex-col gap-y-5 lg:gap-y-0">
       {/* Phone Landing */}
-      <div className="lg:hidden flex bg-black bg-no-repeat bg-cover bg-center w-[100%] h-[100vh]">
+      <div className=" flex bg-phoneDonatte bg-no-repeat bg-cover bg-center w-[100%] h-[100vh] lg:hidden">
         <div className="absolute top-0 w-full h-[100vh] bg-overlay bg-opacity-75 flex justify-between items-center px-10"></div>
       </div>
       {/* Laptop Landing */}

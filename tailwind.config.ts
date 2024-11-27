@@ -20,7 +20,7 @@ export default {
         phoneCauses: "url('../public/Images/PhoneCauses.svg')",
         phonePages: "url('../public/Images/PhonePages.svg')",
         phoneContact: "url('../public/Images/PhoneContact.svg')",
-        phoneDonatte: "url('../public/Images/PhoneDonate2.svg')",
+        phoneDonatte: "url('../public/Images/PhoneDonateLanding.svg')"
       },
 
       colors: {

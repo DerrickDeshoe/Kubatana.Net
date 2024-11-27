@@ -1,9 +1,9 @@
 "use client";
 
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import React, { useState } from "react";
 import Image from "next/image";
-import { FiX } from "react-icons/fi";
+import { FiX, FiChevronDown } from "react-icons/fi"; // Import the dropdown icon
 import Logo from "../../public/Images/Logo.svg";
 import Facebook from "../../public/Images/facebook.svg";
 import Instagram from "../../public/Images/instagram.svg";
@@ -11,66 +11,135 @@ import Twitter from "../../public/Images/twitter.svg";
 import RightArrow from "../../public/Images/RightArrow.svg";
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Desktop dropdown state
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false); // Mobile dropdown state
+  const dropdownRef = useRef(null);
 
   const links = [
     { label: "Home", href: "/" },
     { label: "About", href: "/About" },
     { label: "Causes", href: "/Causes" },
-    { label: "Pages", href: "/Pages" },
+    { label: "Pages", href: "/Pages", hasDropdown: true },
     { label: "Contact", href: "/Contact" },
+  ];
+
+  const dropdownLinks = [
+    { label: "Twitter Page", href: "#" },
+    { label: "Facebook Page", href: "#" },
+    { label: "Instagram Page", href: "#" },
   ];
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prevState) => !prevState);
+  };
+
+  const toggleMobileDropdown = () => {
+    setIsMobileDropdownOpen((prevState) => !prevState);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false); // Close desktop dropdown
+        setIsMobileDropdownOpen(false); // Close mobile dropdown
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <nav className=" absolute w-[100%] bg-transparent flex flex-col lg:items-center lg:justify-between text-white z-[80] py-3 ">
+    <nav className="absolute w-[100%] bg-transparent flex flex-col lg:items-center lg:justify-between text-white z-[80] py-3">
       <div className="flex flex-col w-[100%] space-y-2">
-        <div className="flex justify-between items-center px-5  lg:px-10">
+        {/* Top Bar */}
+        <div className="flex justify-between items-center px-5 lg:px-10">
           <p className="text-[10px] lg:text-xs text-gray">
             123 Street, Harare, Zimbabwe
           </p>
           <div className="flex space-x-3 lg:space-x-4 justify-end">
-            <Image src={Facebook} alt="image" className=" w-[10%] lg:w-[15%]" />
+            <Image
+              src={Facebook}
+              alt="Facebook"
+              className="w-[10%] lg:w-[15%]"
+            />
             <Image
               src={Instagram}
-              alt="image"
-              className=" w-[10%] lg:w-[15%]"
+              alt="Instagram"
+              className="w-[10%] lg:w-[15%]"
             />
-            <Image src={Twitter} alt="image" className=" w-[10%] lg:w-[15%]" />
+            <Image src={Twitter} alt="Twitter" className="w-[10%] lg:w-[15%]" />
           </div>
         </div>
+
         <div className="border-b border-white lg:w-[100%]"></div>
+
+        {/* Main Nav */}
         <div className="hidden lg:flex justify-between items-center w-[100%] px-10">
-          <div className="">
+          <div>
             <Link href="./">
-              <Image src={Logo} alt="image" className="w-[40%] lg:w-[50%]" />
+              <Image src={Logo} alt="Logo" className="w-[40%] lg:w-[50%]" />
             </Link>
           </div>
           <div className="flex space-x-7 items-center">
             <div className="hidden lg:flex lg:items-center space-x-5 font-semibold">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-white hover:text-orange transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {links.map((link) =>
+                link.hasDropdown ? (
+                  <div
+                    ref={dropdownRef}
+                    className="relative flex items-center space-x-1"
+                    key={link.href}
+                  >
+                    <button
+                      onClick={toggleDropdown}
+                      className="text-white hover:text-orange flex items-center space-x-1 group"
+                    >
+                      <span>{link.label}</span>
+                      <FiChevronDown className="text-lg text-white group-hover:text-orange mt-1" />
+                    </button>
+
+                    {isDropdownOpen && (
+                      <div className="absolute top-8 bg-white text-black shadow-md rounded w-40">
+                        {dropdownLinks.map((dropdownLink) => (
+                          <Link
+                            key={dropdownLink.href}
+                            href={dropdownLink.href}
+                            className="block px-4 py-2 hover:bg-gray-200 hover:text-orange"
+                          >
+                            {dropdownLink.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-white hover:text-orange transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </div>
             <Link
               href="/Donate"
-              className="flex space-x-2 justify-center border border-orange rounded-sm py-1 "
+              className="flex space-x-2 justify-center border border-orange rounded-sm py-1"
             >
-              <button className=" font-semibold text-xs text-orange">
+              <button className="font-semibold text-xs text-orange">
                 Donate Now
               </button>
               <Image
                 src={RightArrow}
-                alt="image"
+                alt="Arrow"
                 className="w-[40%] lg:w-[18%]"
               />
             </Link>
@@ -78,6 +147,7 @@ const NavBar = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div className="lg:hidden absolute top-10 right-4">
         <button
           onClick={toggleMenu}
@@ -105,19 +175,18 @@ const NavBar = () => {
         </button>
       </div>
 
-      <div className="lg:hidden absolute top-11 left-[21px] w-[35%]">
+      <div className="absolute flex lg:hidden top-11 left-5 w-[80%]">
         <Link href="./">
-          <Image src={Logo} alt="image" className="" />
+          <Image src={Logo} alt="Logo" className="w-[50%] lg:w-[50%]" />
         </Link>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       <div
         className={`lg:hidden fixed top-0 bottom-0 right-0 w-2/3 max-w-xs bg-black h-full transition-transform transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } z-40 flex flex-col items-center justify-center  text-white`}
+        } z-40 flex flex-col items-center justify-center text-white`}
       >
-        {/* Close Button */}
         <button
           onClick={toggleMenu}
           className="absolute top-5 right-5 text-white text-2xl focus:outline-none"
@@ -126,16 +195,42 @@ const NavBar = () => {
         </button>
 
         <div className="flex flex-col items-center justify-center py-4 space-y-4">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-zinc-200 hover:text-zinc-500 transition-colors"
-              onClick={toggleMenu}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) =>
+            link.hasDropdown ? (
+              <div key={link.href}>
+                <button
+                  onClick={toggleMobileDropdown}
+                  className="text-zinc-200 hover:text-orange transition-colors flex items-center space-x-1 group"
+                >
+                  <span>{link.label}</span>
+                  <FiChevronDown className="text-sm text-white group-hover:text-orange mt-1" />
+                </button>
+                {isMobileDropdownOpen && (
+                  <div className="bg-white rounded shadow-md text-sm mt-2 absolute left-[26%]">
+                    {dropdownLinks.map((dropdownLink) => (
+                      <Link
+                        key={dropdownLink.href}
+                        href={dropdownLink.href}
+                        onClick={toggleMenu}
+                        className="block px-4 py-2 text-black hover:bg-orange"
+                      >
+                        {dropdownLink.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={toggleMenu}
+                className="text-zinc-200 hover:text-zinc-500 transition-colors"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
           <Link
             href="/Donate"
             onClick={toggleMenu}

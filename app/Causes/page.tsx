@@ -18,7 +18,7 @@ const page = () => {
 
 
       {/* Features Section */}
-      <div className="lg:px-5 xl:px-10 w-[100%]">
+      <div className="lg:p-5 xl:p-10 w-[100%]">
         <div className="bg-light p-5 lg:py-10 flex flex-col space-y-10">
           <div className="flex flex-col items-center text-center space-y-3">
             <p className="bg-lightOrange text-orange rounded-lg px-2 text-xs lg:text-sm font-bold">
