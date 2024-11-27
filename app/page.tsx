@@ -190,6 +190,7 @@ const Home = () => {
         </div>
       </div>
 
+      {/* About Us */}
       <div className="flex flex-wrap-reverse p-7 gap-5 lg:p-5 xl:p-10 lg:mt-20 lg:justify-between xl:space-x-5 w-[100%]">
         <div className="lg:w-[48%] relative flex items-end mt-8 lg:mt-0">
           <Image
@@ -328,7 +329,7 @@ const Home = () => {
       <div className="hidden lg:bg-home bg-no-repeat bg-cover h-[100vh] lg:h-[60vh] w-[100%] lg:flex flex-wrap px-2 py-10 lg:px-10 justify-center gap-5">
         <div className="w-[90%] lg:w-[48%] flex flex-col text-white lg:justify-between lg:h-[44vh] xl:h-[38vh] space-y-4">
           <div className="flex flex-col space-y-5">
-            <p className="bg-lightOrange text-orange rounded-lg py-1 px-2 text-xs lg:text-sm font-bold w-[28%] lg:w-[25%] xl:w-[18%] space-y-3">
+            <p className="bg-lightOrange text-orange rounded-lg py-1 px-2 text-xs lg:text-sm font-bold w-[28%] lg:w-[25%] xl:w-[17%] space-y-3 flex justify-center">
               Donate Now
             </p>
             <h2 className="font-bold text-2xl lg:text-3xl lg:w-[80%]">
@@ -455,11 +456,11 @@ const Home = () => {
 
       {/* Donate Phone */}
 
-      <div className="lg:hidden bg-phoneDonate bg-no-repeat bg-cover h-[100vh] lg:h-[60vh] w-[100%] flex flex-wrap px-2 py-10 lg:px-10 justify-center relative">
+      <div className="lg:hidden bg-phoneDonate bg-no-repeat bg-cover h-[100vh] w-[100%] flex flex-wrap px-2 py-10 lg:px-10 justify-center relative">
         <div className="absolute top-0 w-full h-[100vh] bg-overlay bg-opacity-60 flex flex-col justify-center items-center gap-5 ">
-          <div className="w-[90%] lg:w-[48%] flex flex-col text-white lg:justify-between lg:h-[44vh] xl:h-[38vh] space-y-4">
+          <div className="w-[90%] flex flex-col text-white lg:justify-between space-y-4">
             <div className="flex flex-col space-y-5">
-              <p className="bg-lightOrange text-orange rounded-lg py-1 px-2 text-xs lg:text-sm font-bold w-[28%] lg:w-[25%] xl:w-[18%] space-y-3">
+              <p className="bg-lightOrange text-orange rounded-lg py-1 px-2 text-xs lg:text-sm font-bold w-[28%] space-y-3 flex justify-center">
                 Donate Now
               </p>
               <h2 className="font-bold text-2xl lg:text-3xl lg:w-[80%]">
@@ -472,7 +473,7 @@ const Home = () => {
               adipis elit, sed do minim
             </p>
           </div>
-          <div className="w-[90%] lg:w-[48%] bg-white p-5 flex flex-col justify-between space-y-4">
+          <div className="w-[90%] bg-white p-5 flex flex-col justify-between space-y-4">
             {/* Name Input */}
             <label className="flex flex-col">
               <input

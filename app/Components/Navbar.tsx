@@ -50,7 +50,7 @@ const NavBar = () => {
             </Link>
           </div>
           <div className="flex space-x-7 items-center">
-            <div className="hidden lg:flex lg:items-center space-x-3 font-semibold">
+            <div className="hidden lg:flex lg:items-center space-x-5 font-semibold">
               {links.map((link) => (
                 <Link
                   key={link.href}
@@ -62,7 +62,7 @@ const NavBar = () => {
               ))}
             </div>
             <Link
-              href="/Contact"
+              href="/Donate"
               className="flex space-x-2 justify-center border border-orange rounded-sm py-1 "
             >
               <button className=" font-semibold text-xs text-orange">
@@ -115,7 +115,7 @@ const NavBar = () => {
       <div
         className={`lg:hidden fixed top-0 bottom-0 right-0 w-2/3 max-w-xs bg-black h-full transition-transform transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } z-40 flex flex-col items-center justify-center font-mulishSemiBold text-white`}
+        } z-40 flex flex-col items-center justify-center  text-white`}
       >
         {/* Close Button */}
         <button
@@ -137,7 +137,7 @@ const NavBar = () => {
             </Link>
           ))}
           <Link
-            href="/Contact"
+            href="/Donate"
             onClick={toggleMenu}
             className="border border-orange text-orange text-xs font-mulishSemiBold w-full text-center py-1 px-4 rounded"
           >

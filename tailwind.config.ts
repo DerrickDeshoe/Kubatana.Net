@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,6 +15,12 @@ export default {
         home: "url('../public/Images/HomeBack.svg')",
         phoneDonate: "url('../public/Images/PhoneDonate.svg')",
         phoneBack: "url('../public/Images/PhoneLanding.svg')",
+        background1234: "url('../public/Images/Contact/BackGround234.svg')",
+        phoneAbout: "url('../public/Images/PhoneAbout.svg')",
+        phoneCauses: "url('../public/Images/PhoneCauses.svg')",
+        phonePages: "url('../public/Images/PhonePages.svg')",
+        phoneContact: "url('../public/Images/PhoneContact.svg')",
+        phoneDonatte: "url('../public/Images/PhoneDonate2.svg')",
       },
 
       colors: {
