@@ -43,7 +43,7 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsDropdownOpen(false); // Close desktop dropdown
         setIsMobileDropdownOpen(false); // Close mobile dropdown
