@@ -44,17 +44,30 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(false); // Close desktop dropdown
-        setIsMobileDropdownOpen(false); // Close mobile dropdown
+      if (dropdownRef.current) {
+        let element: HTMLElement | null = event.target as HTMLElement;
+  
+        // Traverse up the DOM tree to check if the clicked element is inside the dropdown
+        while (element) {
+          if (element === dropdownRef.current) {
+            // If the element matches the dropdown reference, the click is inside
+            return;
+          }
+          element = element.parentElement; // Move up to the parent element
+        }
+  
+        // If we exit the loop, the click was outside the dropdown
+        setIsDropdownOpen(false); // Close dropdown
       }
     };
-
+  
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  
+  
 
   return (
     <nav className="absolute w-[100%] bg-transparent flex flex-col lg:items-center lg:justify-between text-white z-[80] py-3">
