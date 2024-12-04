@@ -14,11 +14,27 @@ const page = () => {
     <div className="flex flex-col gap-y-5 lg:gap-y-0">
       {/* Phone Landing */}
       <div className=" flex bg-phoneDonatte bg-no-repeat bg-cover bg-center w-[100%] h-[100vh] lg:hidden">
-        <div className="absolute top-0 w-full h-[100vh] bg-overlay bg-opacity-75 flex justify-between items-center px-10"></div>
+        <div className="absolute top-0 w-full h-[100vh] bg-overlay bg-opacity-75 flex flex-col justify-center items-center px-10 space-y-1">
+          <h2 className="font-bold text-3xl text-white">Donate</h2>
+          <div className="flex space-x-3">
+            <p className="text-white font-semibold">Home</p>
+            <p className="text-white">/</p>
+            <p className="text-orange font-semibold">Donate</p>
+          </div>
+        </div>
       </div>
       {/* Laptop Landing */}
       <div className="hidden lg:flex bg-background1234 bg-no-repeat bg-cover bg-center w-[100%] h-[60vh]">
-        <div className="absolute top-0 w-full h-[60vh] bg-overlay bg-opacity-75 flex justify-between items-center px-10"></div>
+        <div className="absolute top-0 w-full h-[60vh] bg-overlay bg-opacity-75 flex flex-col justify-center items-center px-10">
+          <div className="flex flex-col items-center">
+            <h2 className="font-bold text-5xl text-white">Donate</h2>
+            <div className="flex space-x-3">
+              <p className="text-white font-semibold text-2xl">Home</p>
+              <p className="text-white text-2xl">/</p>
+              <p className="text-orange font-semibold text-2xl">Donate</p>
+            </div>
+          </div>
+        </div>
       </div>
       {/* Donate Section */}
       <div className="hidden lg:bg-home bg-no-repeat bg-cover h-[100vh] lg:h-[60vh] w-[100%] lg:flex flex-wrap px-2 py-10 lg:px-10 justify-center gap-5 mt-10">

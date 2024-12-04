@@ -7,13 +7,29 @@ import RightArrow from "../../public/Images/RightArrow.svg";
 const page = () => {
   return (
     <div>
-     {/* Phone Landing */}
-     <div className="lg:hidden flex bg-phoneContact bg-no-repeat bg-cover bg-center w-[100%] h-[100vh]">
-        <div className="absolute top-0 w-full h-[100vh] bg-overlay bg-opacity-75 flex justify-between items-center px-10"></div>
+      {/* Phone Landing */}
+      <div className="lg:hidden flex bg-phoneContact bg-no-repeat bg-cover bg-center w-[100%] h-[100vh]">
+        <div className="absolute top-0 w-full h-[100vh] bg-overlay bg-opacity-75 flex flex-col justify-center items-center px-10 space-y-1">
+          <h2 className="font-bold text-3xl text-white">Contact</h2>
+          <div className="flex space-x-3">
+            <p className="text-white font-semibold">Home</p>
+            <p className="text-white">/</p>
+            <p className="text-orange font-semibold">Contact</p>
+          </div>
+        </div>
       </div>
       {/* Laptop Landing */}
       <div className="hidden lg:flex bg-background1234 bg-no-repeat bg-cover bg-center w-[100%] h-[60vh]">
-        <div className="absolute top-0 w-full h-[60vh] bg-overlay bg-opacity-75 flex justify-between items-center px-10"></div>
+        <div className="absolute top-0 w-full h-[60vh] bg-overlay bg-opacity-75 flex flex-col justify-center  items-center px-10">
+          <div className="flex flex-col items-center">
+            <h2 className="font-bold text-5xl text-white">Contact</h2>
+            <div className="flex space-x-3">
+              <p className="text-white font-semibold text-2xl">Home</p>
+              <p className="text-white text-2xl">/</p>
+              <p className="text-orange font-semibold text-2xl">Contact</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="flex flex-wrap p-5 lg:p-10 lg:justify-between space-y-5 lg:space-y-0">
         <div className="w-[100%] lg:w-[50%] flex flex-col justify-between space-y-4 lg:space-y-0">
